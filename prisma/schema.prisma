@@ -10,9 +10,9 @@ datasource db {
 model Book {
   id          Int      @id @default(autoincrement())
   sbn         String   @unique
-  name        String
-  description String?
-  author      String
+  name        String   @db.VarChar(255)
+  description String?  @db.VarChar(255)
+  author      String   @db.VarChar(255)
   inventory   Int?     @default(1)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @default(now())

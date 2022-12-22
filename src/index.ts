@@ -2,6 +2,8 @@ import cors from 'cors'
 import * as dotenv from 'dotenv'
 import express, { Application } from 'express'
 import helmet from 'helmet'
+import { booksRouter } from './books/books.router'
+import { errorHandler } from './middleware/errorHandler'
 
 dotenv.config()
 
@@ -20,3 +22,6 @@ app.use(express.json())
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`)
 })
+
+app.use('/api/v1/books', booksRouter)
+app.use(errorHandler)

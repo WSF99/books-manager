@@ -1,2 +1,10 @@
-node_modules
+# Node Modules Folder 
+node_modules/
+# Environment File
 .env
+
+# Data Folder
+data/
+
+# Prisma migrations folder
+prisma/migrations/
