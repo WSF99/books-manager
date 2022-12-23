@@ -64,7 +64,7 @@ describe('Buscar livros (GET)', () => {
     expect(statusCode).toBe(400)
   })
   it('Retorna 404, ID válido e livro não encontrado.', async () => {
-    const { statusCode } = await supertest(app).post('/api/v1/books/12345671')
+    const { statusCode } = await supertest(app).get('/api/v1/books/12345671')
     expect(statusCode).toBe(404)
   })
 })
