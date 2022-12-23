@@ -1,4 +1,10 @@
-export const errorHandler = (err, req, res, next) => {
+import { NextFunction, Request, Response } from 'express'
+export const errorHandler = (
+  err: any,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const statusCode = err?.statusCode || err?.status || 500
   const message = err?.message || 'Internal Server Error'
   const realStatus =

@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: superSecreto
+      POSTGRES_DB: books
+    ports:
+      - 2345:5432
+  server:
+    build: .
+    ports:
+      - 7000:7000
+    environment:
+      DATABASE_URL: 'postgresql://postgres:superSecreto@postgres:5432/books?schema=public'
+      PORT: 7000
